@@ -1,0 +1,11 @@
+*title (Title of game)
+*author Helen Contis
+
+*scene list
+  startup
+  scene 1
+  scene 2, etc
+
+*create gender "unknown
+*create name ""  
+
