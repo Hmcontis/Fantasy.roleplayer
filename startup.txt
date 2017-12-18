@@ -1,11 +1,45 @@
-*title (Title of game)
+*title The Alchemist's Tale
 *author Helen Contis
 
-*scene list
+*scene_list
   startup
   scene 1
   scene 2, etc
+  
+*create stats
+  
+*achievement 
 
-*create gender "unknown
-*create name ""  
+*label Gender
+Male or Female?
+*choice
+  #Male
+    *set gender "male"
+    *goto Name
+  #Female
+    *set gender "female"
+    *goto Name
+  #Non-binary
+    *set gender "non-binary"
+    *goto Name
+
+*label Name
+
+What is your name?
+  *input_text name
+  
+  *if ("${name}" != "$!{name}")
+  
+    Your name is $!{name}, yes?
+    
+    *choice
+      #Yes
+        *set name "$!{name}"
+        *goto Story
+      #No
+        *goto input_name
+  
+*label Story
+
+You are a young alchemist living in the small town of Aeliir.  Your daily life consists of wandering the surrounding forest and mountain region to find ingredients for medicines, thus helping the town's two doctors.    
 
