@@ -1,0 +1,13 @@
+*stat_chart
+  text Name
+  text Stat
+  text Stat, etc (or)
+   opposed_pair Side 1
+    Side 2
+   opposed pair Side 1
+    Side 2, etc
+  percent Stat  
+
+*if AcceptsDemon
+  *stat_chart
+    percent Possession
