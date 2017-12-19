@@ -1,14 +1,29 @@
 *title The Alchemist's Tale
 *author Helen Contis
 
+*create Ingredients
+*set Ingredients 0
+*create Cilin
+*set Cilin 10
+*create Intelligence
+*set Intelligence 10
+*create Stamina
+*set Stamina 5
+*create Strength
+*set Strength 5
+*create Melee
+*set Melee 3
+*create Trust
+*set Trust 0
+*create Spirit
+*set Spirit 3
+
+*achievement
+
 *scene_list
   startup
-  scene 1
-  scene 2, etc
-  
-*create stats
-  
-*achievement 
+  Bandits
+  Strangers
 
 *label Gender
 Male or Female?
@@ -35,11 +50,14 @@ What is your name?
     *choice
       #Yes
         *set name "$!{name}"
-        *goto Story
+        *goto Character
       #No
         *goto input_name
   
-*label Story
+*label Character
 
-You are a young alchemist living in the small town of Aeliir.  Your daily life consists of wandering the surrounding forest and mountain region to find ingredients for medicines, thus helping the town's two doctors.    
+You are a young alchemist living in the small town of Aihald.  Your daily life consists of wandering the surrounding areas to find ingredients for medicines and making those medicines in order to aid the town's two doctors.  
+
+Where do you most often go to search for ingredients?
+
 
