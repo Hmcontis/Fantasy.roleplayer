@@ -1,13 +1,28 @@
-*stat_chart
-  text Name
-  text Stat
-  text Stat, etc (or)
-   opposed_pair Side 1
-    Side 2
-   opposed pair Side 1
-    Side 2, etc
-  percent Stat  
+*label screen
+*choice
+  #Inventory
+    *stat_chart
+      text Ingredients
+      text Cilin
+    *goto screen  
+  #Skills
+    *stat_chart
+      text Intelligence
+      text Strength
+      text Stamina
+      text Melee
+    *goto screen  
+  #Heart
+    *stat_chart
+      text Trust
+        opposed_pair
+        Support
+        Betrayal
+      text Spirit
+        opposed_pair
+          Luzae
+          Umbrae
+    *goto screen      
 
-*if AcceptsDemon
-  *stat_chart
-    percent Possession
+    
+
