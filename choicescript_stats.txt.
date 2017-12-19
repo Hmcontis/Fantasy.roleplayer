@@ -10,7 +10,11 @@
       text Intelligence
       text Strength
       text Stamina
+    *goto screen  
+  #Combat
+    *stat_chart
       text Melee
+      text Ranged
     *goto screen  
   #Heart
     *stat_chart
