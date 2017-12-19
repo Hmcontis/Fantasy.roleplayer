@@ -4,6 +4,7 @@
 *create Ingredients
 *set Ingredients 0
 *create Cilin
+*set Cilin 10
 *create Intelligence
 *create Stamina
 *create Strength
@@ -52,20 +53,83 @@ What is your name?
 
 You are a young alchemist living in the small town of Naihald.  Your daily life consists of wandering the surrounding areas to find ingredients for medicines and making those medicines in order to aid the town's two doctors.  
 
+How diligently have you studied alchemy?
+*fake_choice
+  #I didn't study much, but I know what I'm doing.
+    *set Intelligence +5
+  #I studied rather well, but I didn't overdo it.
+    *set Intelligence +15
+  #I studied till I was exhausted. 
+    *set Intelligence +10
+
 What is your preferred time of day to hunt for alchemy ingredients?
 *fake_choice
   #I only look during the day.
+    *set preferred_time
   #I mostly go out in the daytime, but sometimes at night.
+    *set preferred_time
   #I usually go out at night, and sometimes in the daytime.
+    *set preferred_time
   #I only go out at night.
+    *set preferred_time
 
 Where do you most often go to search for ingredients?
 *fake_choice
   #The vast meadows to the south.
-    You most often find yourself searching for ingredients in the meadows.  
+    You most often find yourself searching for ingredients in the meadows. 
+      *set Stamina +5
   #The forest that lies to the north and east.
-    You prefer to look for ingredients within the forest.
+    You prefer to look for ingredients within the forest.  Do you climb trees when you work?
+    *fake_choice
+      #I'm not a climber.
+      #I climb trees on occasion.
+        *set Stamina +5
+        *set Strength +5
+      #I climb trees all the time.
+        *set Stamina +10
+        *set Strength +10
   #The mountains, just a mile west.
     You head to the mountain range most of the time.
+      *set Stamina +10
+      *set Strength +10
+      
+Do you scale cliffs in search of ingredients?
+*fake_choice
+  #I don't do cliffs.
+  #I scale cliffs once in a while.
+    *set Stamina +10
+    *set Strength +10
+  #Cliffs are no problem.
+    *set Stamina +20
+    *set Strength +20
 
+Do you search caves or bodies of water for ingredients? 
+*fake_choice
+  #I avoid caves and water.
+  #I only search caves.
+    *set Stamina +5
+    *set Strength +5
+  #I only search bodies of water.
+    *set Stamina +5
+    *set Strength +5
+  #I search both caves and bodies of water.
+    *set Stamina +10
+    *set Strength +10
+
+How do you handle encounters with dangerous animals or people?
+*fake_choice
+  #I usually run or hide.
+    *set Stamina +10
+  #I defend myself with my dagger, if necessary.
+    *set Stamina +5
+    *set Strength +5
+  #I fight with my dagger without hesitation.
+    *set Stamina +10
+    *set Strength +10
+  #I use my bow, if I must.
+    *set Stamina +5
+    *set Strength +5
+  #I'll shoot anyone or anything that threatens me.
+    *set Stamina +10
+    *set Stamina +10
 
