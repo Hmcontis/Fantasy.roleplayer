@@ -4,19 +4,13 @@
 *create Ingredients
 *set Ingredients 0
 *create Cilin
-*set Cilin 10
 *create Intelligence
-*set Intelligence 10
 *create Stamina
-*set Stamina 5
 *create Strength
-*set Strength 5
 *create Melee
-*set Melee 3
+*create Ranged
 *create Trust
-*set Trust 0
 *create Spirit
-*set Spirit 3
 
 *achievement
 
@@ -56,8 +50,22 @@ What is your name?
   
 *label Character
 
-You are a young alchemist living in the small town of Aihald.  Your daily life consists of wandering the surrounding areas to find ingredients for medicines and making those medicines in order to aid the town's two doctors.  
+You are a young alchemist living in the small town of Naihald.  Your daily life consists of wandering the surrounding areas to find ingredients for medicines and making those medicines in order to aid the town's two doctors.  
+
+What is your preferred time of day to hunt for alchemy ingredients?
+*fake_choice
+  #I only look during the day.
+  #I mostly go out in the daytime, but sometimes at night.
+  #I usually go out at night, and sometimes in the daytime.
+  #I only go out at night.
 
 Where do you most often go to search for ingredients?
+*fake_choice
+  #The vast meadows to the south.
+    You most often find yourself searching for ingredients in the meadows.  
+  #The forest that lies to the north and east.
+    You prefer to look for ingredients within the forest.
+  #The mountains, just a mile west.
+    You head to the mountain range most of the time.
 
 
