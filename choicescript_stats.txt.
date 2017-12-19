@@ -15,9 +15,6 @@
   #Heart
     *stat_chart
       text Trust
-        opposed_pair
-        Support
-        Betrayal
       text Spirit
         opposed_pair
           Luzae
