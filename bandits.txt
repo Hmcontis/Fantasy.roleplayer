@@ -1,0 +1,11 @@
+Sample text here.
+
+*choice
+	#choice no 1
+		*goto next
+	#choice no 2
+		*goto next
+	
+*label next
+
+Here we are again!
