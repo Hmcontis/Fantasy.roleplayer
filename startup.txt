@@ -1,0 +1,398 @@
+*title The Alchemist's Tale 
+*author Helen Contis
+*comment fix achievements and creates as we go
+
+*create Cilin 10
+*create Speech 5
+*create Intelligence 0
+*create Stamina 0
+*create Strength 0
+*create Evasion 0
+*create Stealth 0
+*create Melee 0
+*create Ranged 0
+*create Trust1 0
+*create Trust2 0
+*create Trust3 0
+*create Trust4 0
+*create Love1 0
+*create Love2 0
+*create Love3 0
+*create Love4 0
+*create Luxae false
+*create Umbrae false
+
+*create Ingredients false
+*create Water false
+*create satchel false
+*create knife false
+*create daggers false
+*create sword false
+*create shield false
+
+*create location1 false
+*create location2 false
+*create location3 false
+*create location4 false
+*create location5 false
+
+*create race "unknown"
+*create gender "unknown"
+*create pcname "unknown"
+*create occupation "unknown"
+
+*create he "he"
+*create him "him"
+*create his "his"
+*create boy "boy"
+*create man "man"
+*create her "her"
+*create hers "hers"
+*create she "she"
+*create girl "girl"
+*create woman "woman"
+*create lady "lady"
+*create they "they"
+*create them "them"
+*create theirs "theirs"
+*create their "their"
+
+*create elf false
+*create elf "elf"
+*create elf "elves"
+*create elf "elven"
+*create samyra false
+*create samyra "samyra"
+*create samyra "samyran"
+*create samyra "samyrans"
+*create agiri false
+*create agiri "agiri"
+*create dwarf false
+*create dwarf "dwarf"
+*create dwarf "dwarves"
+*create dwarf "dwarven"
+*create dryad false
+*create dryad "dryads"
+*create dryad "dryad"
+*create kanek false
+*create kanek "kanek"
+
+*scene_list
+	startup
+	chapter1
+	chapter2
+	chapter3
+	
+You live in Celore, a land created by legions of spiritual entities called the Luxae and the Umbrae.  These same spirits gave birth to the various races . . . The question remains: who are you?
+	
+*label Gender
+Are you male or female?
+*choice
+	#Male
+		*set gender "male"
+		*goto Spirit
+	#Female
+		*set gender "female"
+		*goto Spirit
+	#Non-binary
+		*set gender "non-binary"
+		*goto Spirit
+	
+*label Spirit
+Whether you are a child of the Luxae or the Umbrae will determine your race.  Your race and spiritual ancestry will affect your stats.  
+
+Which spirits gave you life?
+*choice
+	#Luxae 
+		*set Luxae true
+		*set Strength 10
+		*set Stamina 10
+		*set Evasion 10
+		*set Stealth 7
+		*set Melee 10
+		*set Ranged 7
+		*set Speech +5
+		*set Cilin +5
+		*set Intelligence +3
+		*goto Race
+	#Umbrae 
+		*set Umbrae true
+		*set Strength +7
+		*set Stamina +7
+		*set Evasion +10
+		*set Stealth +10
+		*set Melee +7
+		*set Ranged +10
+		*set Speech +10
+		*set Cilin +10
+		*set Intelligence +5
+		*goto Race
+
+*label Race
+*choice
+	*if (Luxae = true)
+		#You are of Elven origin.
+			*set race "$!{elf}"
+			*set Strength +5
+			*set Stamina +7
+			*set Evasion +3
+			*set Stealth +10
+			*goto Luxae
+		#You are one of the Samyra, a race of humans with white hair.
+			*set race "$!{samyra}"
+			*set Strength +7
+			*set Stamina +5
+			*set Evasion +3
+			*set Stealth +7
+			*goto Luxae
+		#			You are an Agiri, a race of white tiger humanoids.
+			*set race "$!{agiri}"
+			*set Strength +10
+			*set Stamina +7
+			*set Evasion +3
+			*set Stealth +7
+			*goto Luxae
+	*if (Umbrae = true)
+		#You are of the dwarven race.
+			*set race "$!{Dwarf}"
+			*set Strength +10
+			*set Evasion +2
+			*set Stealth +3
+			*set Speech +10
+			*goto Umbrae
+		#You are a dryad, a forest guardian.
+			*set race "$!{dryad}"
+			*set Strength +3
+			*set Evasion +10
+			*set Stealth +10
+			*set Intelligence +10
+			*set Speech +3
+			*goto Umbrae
+		#You are one of the Kanek, a race of humans with black hair.
+			*set race "$!{kanek}"
+			*set Strength +7
+			*set Stealth +7
+			*set Evasion +3
+			*set Speech +7
+			*goto Umbrae
+		
+*label Luxae
+The Luxae races are very strict peoples, focusing their energies on order and protection.  Your place in the kingdom will also affect your stats. 
+
+What is your occupation?
+
+*choice
+	#I am a soldier, fighting to protect the people.
+		*set Sword true
+		*set Shield true
+		*set knife true
+		*if race = "$!{elf}"
+			*set Strength +30
+			*set Stamina +35
+			*set Melee +40
+			*set Ranged +50
+			*set Evasion +10
+			*set Stealth +25
+			*set Speech +7
+			*set Cilin +50
+		*if race = "$!{samyra}"
+			*set Strength +40
+			*set Stamina +35
+			*set Melee +45
+			*set Ranged +25
+			*set Evasion +7
+			*set Stealth +20
+			*set Speech +10
+			*set Cilin +40
+		*if race = "$!{agiri}"
+			*set Strength +50
+			*set Stamina +30
+			*set Melee +50
+			*set Ranged +15
+			*set Evasion +5
+			*set Stealth +15
+			*set Speech +10
+			*set Cilin +45
+		*goto Certainty
+	#I am a mercenary, fighting on my own terms.
+		*set sword true
+		*set daggers true
+		*if race = "$!{elf}"
+			*set Strength +20
+			*set Stamina +45
+			*set Melee +45
+			*set Ranged +55
+			*set Evasion +15
+			*set Stealth +30
+			*set Speech +15
+			*set Cilin +40
+			*set Intelligence +3
+		*if race = "$!{samyra}"
+			*set Strength +30
+			*set Stamina +45
+			*set Melee +50
+			*set Ranged +30
+			*set Evasion +10
+			*set Stealth +25
+			*set Speech +20
+			*set Cilin +40
+			*set Intelligence +3
+		*if race = "$!{agiri}"
+			*set Strength +40
+			*set Stamina +40
+			*set Melee +55
+			*set Ranged +20
+			*set Evasion +7
+			*set Stealth +20
+			*set Speech +20
+			*set Cilin +35
+			*set Intelligence +3
+		*goto Certainty
+	#I am not a warrior, but I still strive to protect others.
+		*if race = "$!{elf}"
+			*set Strength +10
+			*set Stamina +15
+			*set Speech +25
+			*set Cilin +20
+			*set Intelligence +2
+		*if race = "$!{samyra}"
+			*set Strength +20
+			*set Stamina +15
+			*set Speech +25
+			*set Cilin +20
+			*set Intelligence +2
+		*if race = "$!{agiri}"
+			*set Strength +30
+			*set Stamina +7
+			*set Speech +25
+			*set Cilin +20
+			*set Intelligence +2
+		*goto Certainty
+
+*label Umbrae
+The Umbrae races are strong, yet peaceful, focusing their attention on arts, trade, and education.  They also produce powerful mages to protect the people.  Your place in the kingdom will also affect your stats. 
+
+What is your trade?
+
+*choice
+	#I am a simple merchant.
+		*if race = "$!{dwarf}"
+			*set Cilin +50
+			*set Intelligence +5
+			*set Speech +50
+			*set Strength +10
+		*if race = "$!{dryad}"
+			*set Cilin +20
+			*set Intelligence +15
+			*set Speech +30
+			*set Strength +5
+		*if race = "$!{kanek}"
+			*set Cilin +30
+			*set Intelligence +10
+			*set Speech +40
+			*set Strength +15
+		*goto Certainty 
+	#I am an alchemist, making medicines to help others.
+		*set Ingredients true
+		*set Satchel true
+		*set Water true
+		*if race = "$!{dwarf}"
+			*set Cilin +40
+			*set Intelligence +15
+			*set Speech +45
+			*set Strength +10
+		*if race = "$!{dryad}"
+			*set Cilin +30
+			*set Intelligence +25
+			*set Speech +25
+			*set Strength +5
+		*if race = "$!{kanek}"
+			*set Cilin +20
+			*set Intelligence +20
+			*set Speech +35
+			*set Strength +15
+		*goto Certainty
+	#I am a mage.
+		*if race = "$!{dwarf}"
+			*set Cilin +10
+			*set Intelligence +25
+			*set Speech +10
+			*set Strength +10
+			*set Evasion +5
+			*set Stealth +5
+			*set Melee +35
+			*set Ranged +25
+		*if race = "$!{dryad}"
+			*set Cilin +30
+			*set Intelligence +50
+			*set Speech +5
+			*set Strength +7
+			*set Evasion +50
+			*set Stealth +50
+			*set Melee +25
+			*set Ranged +50
+		*if race = "$!{kanek}"
+			*set Cilin +25
+			*set Intelligence +40
+			*set Speech +10
+			*set Strength +15
+			*set Evasion +35
+			*set Stealth +35
+			*set Melee +30
+			*set Ranged +40
+		*goto Certainty
+		
+*label Certainty
+
+Is this who you are?
+*choice
+	#Yes, this is who I am.
+		*goto Name
+	#I would like to change my occupation.
+		*if (Luxae = true)
+			*goto Luxae
+		*else
+			*goto Umbrae
+	#I want to change my race.
+		*goto Race
+	#I wish to change my spiritual origins.
+		*goto Spirit
+	
+*label Name
+
+What is your name?
+
+*fake_choice
+	#Continue to type your name
+		*label input_pcname
+		*input_text pcname
+
+*if ("${pcname}" != "S!{pcname}")
+		
+		Your name is $!{pcname}, yes?
+		
+		*choice
+			#Yes
+				*set pcname "$!{pcname}"
+				*goto Begin
+			#No
+				*goto input_pcname
+			
+
+*label Begin
+
+Now, enough questions.  Your adventure is about to unfold.
+
+*finish [i]Begin[/i]
+
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
+		
