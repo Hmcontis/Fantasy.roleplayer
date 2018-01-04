@@ -1,0 +1,37 @@
+*label screen
+*choice
+	#Inventory
+		*stat_chart
+			text Ingredients (needed for alchemy)
+			text Water (needed for alchemy)
+		*goto screen
+	#Skills
+		*stat_chart
+			text Intelligence (ability in alchemy and/or magic)
+			text Stamina
+			text Strength
+			text Stealth
+			text Evasion (ability to dodge attacks)
+			text Speech (ability to communicate and connect with others)
+		*goto screen
+	#Combat
+		*stat_chart
+			text Melee
+			text Ranged
+		*goto screen
+	#Relationships
+		*stat_chart
+			text Trust1
+			text Trust2
+			text Trust3
+			text Trust4
+			text Love1
+			text Love2
+			text Love3
+			text Love4
+		*goto screen
+*finish
+     
+
+    
+
